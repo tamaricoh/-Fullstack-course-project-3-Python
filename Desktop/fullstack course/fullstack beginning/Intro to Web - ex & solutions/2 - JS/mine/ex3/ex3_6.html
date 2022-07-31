@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <script>
+      let arr = [
+        [1, 6, 7],
+        [8, 3],
+        [2, 9, 5, 4],
+      ];
+      for (let i = 0; i < arr.length; i++) {
+        //outer cells
+        document.write("values in inner array are - ");
+        for (let j = 0; j < arr[i].length; j++) {
+          // inner cells
+          document.write(arr[i][j] + " \n");
+        }
+        document.write("<br>");
+        document.write("length of inner array is - " + arr[i].length);
+        document.write("<br>");
+      }
+      document.write("<br>");
+      document.write("<br>");
+      document.write("<br>");
+      document.write("values in arrat which between 4 and 8 - ");
+      for (let i = 0; i < arr.length; i++) {
+        //outer cells
+
+        for (let j = 0; j < arr[i].length; j++) {
+          // inner cells
+          if ((arr[i][j] > 4) & (arr[i][j] < 8))
+            document.write(arr[i][j] + " \n");
+        }
+      }
+      document.write("<br>");
+      document.write("<br>");
+      document.write("<br>");
+      document.write("sum of all values - ");
+      let sum = 0;
+      for (let i = 0; i < arr.length; i++) {
+        //outer cells
+        for (let j = 0; j < arr[i].length; j++) {
+          // inner cells
+          sum += arr[i][j];
+        }
+      }
+      document.write(sum);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,167 @@
+//---------------------------------------reducer
+
+// @author Tamar Cohen
+
+const Ex10_1reducer = (state = { users: [] }, action) => {
+  switch (action.type) {
+    case "ADD":
+      return { ...state, users: [...state.users, action.payload] };
+
+    case "UPDATE":
+      let arr = [...state.users];
+      let index = arr.findIndex((x) => x.id == action.payload.id);
+      if (index >= 0) {
+        arr[index] = action.payload;
+      }
+      return { ...state, users: arr };
+
+    case "DELETE":
+      let arr2 = [...state.users];
+      arr2 = arr2.filter((x) => {
+        if (x.id != action.payload) return x;
+      });
+      return { ...state, users: arr2 };
+
+    default:
+      return state;
+  }
+};
+
+export default Ex10_1reducer;
+
+// @author Tamar Cohen
+
+//---------------------------------------add user
+
+// @author Tamar Cohen
+
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import Ex10_1Adult from "./Ex10_1AdultUsers";
+
+function Ex10_1users() {
+  const storeData = useSelector((state) => state);
+
+  return (
+    <div style={{ border: "3px solid green", textAlign: "left" }}>
+      <h2>All Users</h2>
+      <table border="1">
+        <tbody>
+          {storeData.users.map((item) => {
+            return (
+              <tr key={item.id}>
+                <td>{item.fname}</td>
+                <td>{item.lname}</td>
+                <td>{item.age}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      <br />
+      <Ex10_1Adult />
+    </div>
+  );
+}
+
+export default Ex10_1users;
+
+// @author Tamar Cohen
+
+//---------------------------------------users
+
+// @author Tamar Cohen
+
+import { useDispatch } from "react-redux";
+import { useState } from "react";
+import Ex10_1users from "./Ex10_1users";
+
+function Ex10_1user() {
+  const dispatach = useDispatch();
+  const [user, setUser] = useState({ id: 0, fname: "", lname: "", age: 0 });
+
+  return (
+    <div style={{ border: "3px solid orange", textAlign: "left" }}>
+      ID :{" "}
+      <input
+        type="text"
+        onChange={(e) => setUser({ ...user, id: +e.target.value })}
+      />
+      <br />
+      First Name :{" "}
+      <input
+        type="text"
+        onChange={(e) => setUser({ ...user, fname: e.target.value })}
+      />
+      <br />
+      Last Name :{" "}
+      <input
+        type="text"
+        onChange={(e) => setUser({ ...user, lname: e.target.value })}
+      />
+      <br />
+      Age :{" "}
+      <input
+        type="text"
+        onChange={(e) => setUser({ ...user, age: +e.target.value })}
+      />
+      <br />
+      <input
+        type="button"
+        value="Add"
+        onClick={() => dispatach({ type: "ADD", payload: user })}
+      />
+      <input
+        type="button"
+        value="Update"
+        onClick={() => dispatach({ type: "UPDATE", payload: user })}
+      />
+      <input
+        type="button"
+        value="Delete"
+        onClick={() => dispatach({ type: "DELETE", payload: user.id })}
+      />
+      <br />
+      <br />
+      <Ex10_1users />
+    </div>
+  );
+}
+
+export default Ex10_1user;
+
+// @author Tamar Cohen
+
+//---------------------------------------adult users
+
+// @author Tamar Cohen
+
+import { useSelector } from "react-redux";
+
+function Ex10_1Adult() {
+  const storeData = useSelector((state) => state);
+  return (
+    <div style={{ border: "3px solid blue", textAlign: "left" }}>
+      <h2>Adult Users</h2>
+      <table border="1">
+        <tbody>
+          {storeData.users.map((item) => {
+            if (item.age > 18)
+              return (
+                <tr key={item.id}>
+                  <td>{item.fname}</td>
+                  <td>{item.lname}</td>
+                  <td>{item.age}</td>
+                </tr>
+              );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+export default Ex10_1Adult;
+
+// @author Tamar Cohen
+

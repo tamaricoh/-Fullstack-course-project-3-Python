@@ -1,0 +1,66 @@
+//------------------------------------------ Parent
+// @author Tamar Cohen
+
+import axios from "axios";
+import { useEffect, useState } from "react";
+import Ex8_1C from "./Ex8_1Child";
+
+function Ex8_1P(props) {
+  const [id, setId] = useState(0);
+
+  return (
+    <div>
+      User ID : <input type="text" onChange={(e) => setId(e.target.value)} />
+      <Ex8_1C userId={id} />
+    </div>
+  );
+}
+
+export default Ex8_1P;
+
+// @author Tamar Cohen
+
+//-----------------------------------------Child
+
+// @author Tamar Cohen
+
+import axios from "axios";
+import { useState, useEffect } from "react";
+
+function Ex8_1C(props) {
+  const [todo, setTodo] = useState([]);
+
+  useEffect(() => {
+    {
+      async function getData() {
+        let resp = await axios.get(
+          "https://jsonplaceholder.typicode.com/todos?userId=" + props.userId
+        );
+        let todos = resp.data.splice(0, 3).map((x) => x.title);
+        setTodo(todos);
+      }
+      getData();
+    }
+  }, [props.userId]);
+
+  const getTodos = async () => {
+    let resp = await axios.get(
+      "https://jsonplaceholder.typicode.com/todos?userId=" + props.userId
+    );
+    setTodo([resp.data]);
+  };
+
+  return (
+    <div>
+      <ul>
+        {todo.map((item, index) => {
+          return <li key={index}>{item}</li>;
+        })}
+      </ul>
+    </div>
+  );
+}
+
+export default Ex8_1C;
+
+// @author Tamar Cohen

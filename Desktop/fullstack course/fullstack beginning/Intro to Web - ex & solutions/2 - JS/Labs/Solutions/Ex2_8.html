@@ -1,0 +1,74 @@
+<html>
+
+<head>
+
+    
+<script>
+
+//Option 1
+let x = parseInt(prompt("enter number"));
+
+if(x>5)
+{
+    let y = parseInt(prompt("enter number"));
+    let z = parseInt(prompt("enter number"));
+
+    if(y>z)
+    {
+        for(let i=0; i < y; i++)
+        {
+            console.log("Hello");
+        }
+    }
+    else
+    {
+        for(let i=0; i < z; i++)
+        {
+            console.log("Hello");
+        }
+    }
+}
+
+
+
+//Option 2
+let x = parseInt(prompt("enter number"));
+
+if(x>5)
+{
+    let y = parseInt(prompt("enter number"));
+    let z = parseInt(prompt("enter number"));
+    let max=0;
+
+    //option A
+    if(y>z)
+    {
+        max = y;
+    }
+    else
+    {
+        max = z;
+    }
+    
+    //option B
+    max = y>z?y:z;
+
+    for(let i=0; i < max; i++)
+    {
+        console.log("Hello");
+    }
+}
+  
+
+
+</script>
+    
+
+
+</head>
+    <body>
+        
+
+
+    </body>
+</html>

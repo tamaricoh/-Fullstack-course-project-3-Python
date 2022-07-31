@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function switchTxt() {
+        let temp = document.querySelector("#id_txt1").value;
+        document.querySelector("#id_txt1").value =
+          document.querySelector("#id_txt2").value;
+        document.querySelector("#id_txt2").value = temp;
+      }
+    </script>
+  </head>
+  <body>
+    <input type="text" id="id_txt1" />
+    <input type="text" id="id_txt2" />
+    <button id="id_btn" onclick="switchTxt()">switch</button>
+  </body>
+</html>

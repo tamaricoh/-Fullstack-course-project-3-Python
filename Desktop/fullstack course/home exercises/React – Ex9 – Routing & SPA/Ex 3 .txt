@@ -1,0 +1,156 @@
+//------------------------------- main 
+
+// @author Tamar Cohen
+
+import { Routes, Route } from "react-router-dom";
+import Ex9_3s1 from "./Ex9_3s1";
+import Ex9_3s2 from "./Ex9_3s2";
+import Ex9_3s3 from "./Ex9_3s3";
+import Ex9_3s4 from "./Ex9_3s4";
+
+function Ex9_3() {
+  return (
+    <div style={{ backgroundColor: "grey" }}>
+      <h2>Web</h2>
+
+      <Routes>
+        <Route path="/" element={<Ex9_3s1 />} />
+        <Route path="/s2" element={<Ex9_3s2 />} />
+        <Route path="/s3" element={<Ex9_3s3 />} />
+        <Route path="/s4" element={<Ex9_3s4 />} />
+      </Routes>
+    </div>
+  );
+}
+
+export default Ex9_3;
+
+// @author Tamar Cohen
+
+//------------------------------- stage 1 
+
+// @author Tamar Cohen
+
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+
+function Ex9_3s1() {
+  const navigate = useNavigate();
+  const [name, setName] = useState("");
+
+  const next = () => {
+    sessionStorage["name"] = name;
+    navigate("/s2");
+  };
+
+  return (
+    <div style={{ backgroundColor: "orange" }}>
+      <h1>Welcome page</h1>
+      Name : <input type="text" onChange={(e) => setName(e.target.value)} />
+      <br />
+      <input type="button" value="Start" onClick={next} />
+    </div>
+  );
+}
+
+export default Ex9_3s1;
+
+// @author Tamar Cohen
+
+//------------------------------- stage 2 
+
+// @author Tamar Cohen
+
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+
+function Ex9_3s2() {
+  const [fName, setFName] = useState("");
+  const [lName, setLName] = useState("");
+
+  const navigate = useNavigate();
+
+  const next = () => {
+    sessionStorage["fname"] = fName;
+    sessionStorage["lname"] = lName;
+    navigate("/s3");
+  };
+
+  return (
+    <div style={{ backgroundColor: "pink" }}>
+      <form>
+        First Name : &emsp;
+        <input
+          type="text"
+          onChange={(e) => setFName(e.target.value)}
+          required
+        />
+        <br />
+        Last Name : &emsp;
+        <input type="text" onChange={(e) => setLName(e.target.value)} />
+        <br />
+        <input type="submit" value="Next" onClick={next} />
+      </form>
+    </div>
+  );
+}
+
+export default Ex9_3s2;
+
+// @author Tamar Cohen
+
+
+//------------------------------- stage 3 
+
+// @author Tamar Cohen
+
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+
+function Ex9_3s3() {
+  const navigate = useNavigate();
+  const [city, setCity] = useState("");
+
+  const next = () => {
+    sessionStorage["city"] = city;
+    navigate("/s4");
+  };
+  return (
+    <div style={{ backgroundColor: "blue" }}>
+      <select name="city" onChange={(e) => setCity(e.target.value)}>
+        <option selected="selected" value=""></option>
+        <option value="Tel Aviv">Tel Aviv</option>
+        <option value="Jerusalem">Jerusalem</option>
+      </select>
+      <input type="button" value="Next" onClick={next} />
+    </div>
+  );
+}
+
+export default Ex9_3s3;
+
+// @author Tamar Cohen
+
+
+//------------------------------- stage 4 
+
+// @author Tamar Cohen
+
+function Ex9_3s4() {
+  return (
+    <div style={{ backgroundColor: "red" }}>
+      Name : {sessionStorage["name"]}
+      <br />
+      first Name : {sessionStorage["fname"]}
+      <br />
+      Last Name : {sessionStorage["lname"]}
+      <br />
+      City : {sessionStorage["city"]}
+    </div>
+  );
+}
+
+export default Ex9_3s4;
+
+// @author Tamar Cohen
+

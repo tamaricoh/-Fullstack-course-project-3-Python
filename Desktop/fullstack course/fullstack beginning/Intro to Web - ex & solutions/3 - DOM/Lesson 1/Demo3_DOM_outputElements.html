@@ -1,0 +1,31 @@
+<html>
+
+<head>
+
+    
+<script>
+
+
+let counter = 0;
+
+  function increment()
+  {
+    counter++;
+
+    let obj = document.getElementById("sCounter");
+    obj.innerText = counter;
+  }
+
+
+</script>
+    
+
+
+</head>
+    <body>
+      
+      <div onmouseover="increment()" style="width: 200px; height: 100px; background: red;">Mouse Over here</div>
+     
+      Counter : <span id="sCounter"></span>
+    </body>
+</html>

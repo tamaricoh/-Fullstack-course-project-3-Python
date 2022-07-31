@@ -1,0 +1,23 @@
+<html>
+  <body>
+    <!--
+
+            Forms : 
+              -- each field MUST have a name
+              -- "action" - Thedestination of the data (in the server)
+              -- "method" - The data will be send in one of 2 ways:
+                -- "GET" - All data will be send in URL
+                -- "POST" - All data will be sent within request body
+
+                send to data to "mysite.com"
+                "Get" - "mysite.com?fname=Avi&lname=Cohen"
+        -->
+
+    <form action="mysite.com">
+      First Name : <input type="text" name="fname" /><br />
+      Last Name : <input type="text" name="lname" /><br />
+
+      <input type="submit" value="Send" />
+    </form>
+  </body>
+</html>

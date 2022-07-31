@@ -1,0 +1,33 @@
+<html>
+    <script>
+
+
+function getArr(arrNames,arrAges, arrPhones)
+{
+    let arr = [];
+    let len = arrNames.length;
+
+
+    for(let i=0; i < len; i++)
+    {
+        let obj = {name : arrNames[i], age : arrAges[i] , phone : arrPhones[i]  };
+
+        arr.push(obj);
+    }
+
+
+    return arr;
+}
+
+
+let arr = getArr(["Avi","Dana","Ron"] , [20,25,32] , ["03-33","04-44", "05-55"]);
+
+console.log(arr)
+
+    </script>
+    <body>
+        
+
+
+    </body>
+</html>

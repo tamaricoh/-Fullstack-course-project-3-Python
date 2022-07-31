@@ -1,0 +1,21 @@
+h1 {
+  color: rebeccapurple;
+}
+h2 {
+  /*סוג גופן*/
+  font-family: sans-serif;
+  /*גודל גופן*/
+  font-size: 223%;
+  /*bold*/
+  font-weight: normal;
+  /*כתב נטוי*/
+  font-style: italic;
+}
+.para /* class */ {
+  text-align: center;
+}
+
+#fote /* ID */ {
+  /*מוריד קו תחתון ללינקים*/
+  text-decoration: none;
+}

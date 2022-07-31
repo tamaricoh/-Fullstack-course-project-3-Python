@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function init() {
+        checkTemp();
+      }
+
+      function checkTemp() {
+        let temp = document.querySelector("#id_input").value;
+
+        if (temp > 28) {
+          document.querySelector("#id_span").innerHTML = "HOT!";
+          document.querySelector("#id_span").style.background = "red";
+        } else if (temp < 20) {
+          document.querySelector("#id_span").innerHTML = "COLD";
+          document.querySelector("#id_span").style.background = "BLUE";
+        } else {
+          document.querySelector("#id_span").innerHTML = "Okay!";
+          document.querySelector("#id_span").style.background = "green";
+        }
+      }
+    </script>
+  </head>
+  <body onload="init()">
+    <h2>Enter the temp in your room:</h2>
+    <input id="id_input" type="number" value="24" oninput="checkTemp()" />
+    <h3>The condition in your room is <span id="id_span"></span></h3>
+  </body>
+</html>

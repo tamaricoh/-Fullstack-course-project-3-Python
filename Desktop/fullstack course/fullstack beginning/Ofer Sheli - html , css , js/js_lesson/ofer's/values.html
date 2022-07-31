@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function init() {
+        alert("Tamar the greatest");
+      }
+
+      function changeBGcolor() {
+        document.querySelector("#head1_id").innerHTML =
+          document.querySelector("#input_id").value;
+        document.querySelector("#head1_id").style.background =
+          document.querySelector("#input_id").value;
+      }
+
+      function changeFontColor() {
+        document.querySelector("#head1_id").style.color =
+          document.querySelector("#select_id").value;
+      }
+    </script>
+  </head>
+  <body onload="init()">
+    <h1 id="head1_id">Enter your favorite color -</h1>
+    <input id="input_id" type="text" oninput="changeBGcolor()" />
+    <button onclick="changeBGcolor()">Change color</button>
+    <h2>choose font color</h2>
+    <select id="select_id" onchange="changeFontColor()">
+      <option value="red">Red</option>
+      <option value="pink">Pink</option>
+      <option value="orange">Orange</option>
+    </select>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function init() {}
+
+      function colorRed() {
+        document.querySelector("#head1").style.background = "red";
+      }
+
+      function colorBlue() {
+        document.querySelector("#head1").style.background = "blue";
+      }
+
+      function colorGreen() {
+        document.querySelector("#head1").style.background = "green";
+      }
+    </script>
+  </head>
+  <body onload="init()">
+    <h1 id="head1">Choose color you like:</h1>
+    <button onclick="colorRed()">Red</button>
+    <button onclick="colorBlue()">Blue</button>
+    <button onclick="colorGreen()">Green</button>
+  </body>
+</html>

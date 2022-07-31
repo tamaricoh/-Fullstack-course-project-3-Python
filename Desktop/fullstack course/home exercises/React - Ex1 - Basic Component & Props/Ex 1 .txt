@@ -1,0 +1,37 @@
+// ----------------------------Person 
+import PhoneComp from "./PhonesComp";
+
+function PersonComp(props) {
+  return (
+    <div>
+      <h1>Test comp 1 </h1>
+
+      <PhoneComp data={{ home: "07", mobile: "050", fax: "077" }} />
+      <h1>test comp 1 END </h1>
+    </div>
+  );
+}
+
+export default PersonComp;
+//----------------------------------Phone
+import PersonComp from "./PersonComp";
+
+function PhoneComp(props) {
+  return (
+    <div>
+      <h3>test comp 2 (clicking will print to console)</h3>
+      Home num - {props.data.home}
+      <br />
+      Mobile num - {props.data.mobile}
+      <br />
+      Fax num - {props.data.fax}
+      <br />
+      <button style={{ color: "red" }} onClick={() => console.log(props.data)}>
+        click
+      </button>
+      <h3>test comp 2 END </h3>
+    </div>
+  );
+}
+
+export default PhoneComp;

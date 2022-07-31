@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let idForAdultsOnly = [
+        "id_id",
+        "id_id_label",
+        "id_payment",
+        "id_payment_label",
+      ];
+      function hideForMinor() {
+        idForAdultsOnly.forEach(function (element) {
+          document.querySelector(`#${element}`).style.visibility = "hidden";
+        });
+      }
+
+      function showForMinor() {
+        idForAdultsOnly.forEach(function (element) {
+          document.querySelector(`#${element}`).style.visibility = "visible";
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      <label>Name - </label>
+      <input type="text" id="id_name" />
+      <br />
+      <input type="radio" name="adult" onclick="showForMinor()" />
+      <label>Yes</label>
+      <input type="radio" name="adult" onclick="hideForMinor()" />
+      <label>No</label>
+      <br />
+      <label id="id_id_label">ID -</label>
+      <input type="text" id="id_id" />
+      <br />
+      <label id="id_payment_label">Credit Card -</label>
+      <input type="text" id="id_payment" />
+      <br />
+      <button id="id_btn">Save</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<html>
+    <script>
+
+
+function getNameByPhone(arr, mobileNum)
+{
+    let name = "";
+
+    for(let i=0; i < arr.length; i++)
+    {
+        if(arr[i].Phones.Mobile == mobileNum)
+        {
+            name = arr[i].Name;
+            //Option 1
+            break;
+            
+            //Option 2
+            //return name
+        }
+    }
+
+    return name;
+}
+
+
+let obj1 = {Name : "Avi",
+            Age : 20,
+            Phones :
+                    {
+                        Mobile : "054-444",
+                        Home : "03-333",
+                        Fax : "077-777"
+                    }
+ }
+
+ let obj2 = {Name : "Dana",
+            Age : 30,
+            Phones :
+                    {
+                        Mobile : "050-222",
+                        Home : "03-333",
+                        Fax : "077-777"
+                    }
+  }
+
+  let obj3 = {Name : "Gil",
+            Age : 30,
+            Phones :
+                    {
+                        Mobile : "050-222",
+                        Home : "03-333",
+                        Fax : "077-777"
+                    }
+  }
+
+  let arr = [obj1,obj2,obj3]
+
+  debugger;
+  let name = getNameByPhone(arr,"050-222")
+
+    </script>
+    <body>
+        
+
+
+    </body>
+</html>

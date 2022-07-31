@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function changeColor() {
+        let cellNum = document.querySelector("#id_txt").value;
+        document.querySelector(`#id_${cellNum}`).style.background = "red";
+      }
+    </script>
+  </head>
+  <body>
+    <table border="1">
+      <tr style="height: 50px">
+        <td id="id_1" style="width: 100px"></td>
+        <td id="id_2" style="width: 100px"></td>
+      </tr>
+      <tr style="height: 50px">
+        <td id="id_3" style="width: 100px"></td>
+        <td id="id_4" style="width: 100px"></td>
+      </tr>
+    </table>
+    <br />
+    <input id="id_txt" type="text" />
+    <button id="id_btn" onclick="changeColor()">change color</button>
+  </body>
+</html>

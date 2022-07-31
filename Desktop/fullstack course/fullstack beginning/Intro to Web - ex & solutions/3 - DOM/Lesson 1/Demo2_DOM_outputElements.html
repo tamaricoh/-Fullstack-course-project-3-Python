@@ -1,0 +1,71 @@
+<html>
+
+<head>
+
+    
+<script>
+
+  function createText()
+  {
+     let obj = document.getElementById('hText')
+     obj.innerText = "Hello World";
+  }
+
+function readText()
+{
+  let obj = document.getElementById('hText')
+  let text =  obj.innerText
+
+  console.log(obj.innerText)
+}
+
+
+function changeTableData()
+{
+  let obj = document.getElementById("td4");
+  obj.innerText = "Hello from JS";
+}
+
+function swap()
+{
+  let obj1 = document.getElementById("td1")
+  let obj2 = document.getElementById("td2")
+
+  let temp = obj1.innerText;
+  obj1.innerText = obj2.innerText;
+  obj2.innerText = temp;
+  
+}
+
+</script>
+    
+
+
+</head>
+    <body>
+      
+     <input type="button" value="Set text in header" onclick="createText()"> 
+     <input type="button" value="Read text from header" onclick="readText()"> 
+
+    <h3 id="hText">  </h3>  <br/>
+
+    <input type="button" value="change table data" onclick="changeTableData()"> 
+
+    <br/>
+
+    <h3 onmouseover="swap()">Swap table texts</h3>
+
+
+    <table border="1">
+      <tr>
+        <td id="td1">Hello</td>
+        <td id="td2">Bye</td>
+      </tr>
+      <tr>
+        <td>Shalom</td>
+        <td id="td4">ok</td>
+      </tr>
+    </table>
+
+    </body>
+</html>

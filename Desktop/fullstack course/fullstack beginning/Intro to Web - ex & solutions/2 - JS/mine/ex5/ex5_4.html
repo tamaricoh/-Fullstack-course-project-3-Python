@@ -1,0 +1,36 @@
+<html>
+  <script>
+    window.onload = function () {
+      ex5_4check();
+    };
+    function ex5_4check() {
+      let val = ex5_4(
+        ["Tamar", "Tom", "Pnina"],
+        [22, 25, 52],
+        ["054", "050", "052"]
+      );
+
+      for (let i = 0; i < val.length; i++) {
+        document.write(
+          val[i].Name + " " + val[i].Age + " " + val[i].Phone + "<br>"
+        );
+      }
+    }
+    function ex5_4(_arrNames, _arrAges, _arrNums) {
+      let arr = [];
+      let length = _arrNames.length;
+
+      for (let i = 0; i < length; i++) {
+        let json = {
+          Name: _arrNames[i],
+          Age: _arrAges[i],
+          Phone: _arrNums[i],
+        };
+
+        arr.push(json);
+      }
+      return arr;
+    }
+  </script>
+  <body></body>
+</html>

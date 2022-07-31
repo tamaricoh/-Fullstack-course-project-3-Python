@@ -1,0 +1,32 @@
+<html>
+  <script>
+    function printBigger(num1, num2) {
+      document.write(Math.max(num1, num2));
+      console.log(Math.max(num1, num2));
+    }
+    function ex5_1() {
+      let dataOfStudent = {
+        nums1: [4, 1, 2, 5],
+        nums2: [6, 1, 8, 3],
+        Student: {
+          Name: "Avi",
+          ID: 111111,
+          Grades: {
+            nums3: [4, 1, 9, 3],
+          },
+        },
+      };
+      let avr_nums1 = 0;
+      let nums1 = dataOfStudent.nums1;
+      for (let i = 0; i < nums1.length; i++) avr_nums1 += nums1[i];
+      avr_nums1 /= nums1.length;
+
+      let nums3 = dataOfStudent.Student.Grades.nums3;
+      let avr_nums3 = 0;
+      for (let i = 0; i < nums3.length; i++) avr_nums3 += nums3[i];
+      avr_nums3 /= nums3.length;
+      printBigger(avr_nums1, avr_nums3);
+    }
+  </script>
+  <body onload="ex5_1()"></body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function ex4_2() {
+        let st1 = String(document.querySelector("#txt1").value);
+        let st2 = String(document.querySelector("#txt2").value);
+        if (st1.length > st2.length)
+          document.write(document.querySelector("#txt1").value);
+        else document.write(document.querySelector("#txt2").value);
+      }
+    </script>
+  </head>
+  <body>
+    <input type="text" id="txt1" />
+    <br />
+    <input type="text" id="txt2" />
+    <br />
+    <button onclick="ex4_2()">show larger</button>
+  </body>
+</html>

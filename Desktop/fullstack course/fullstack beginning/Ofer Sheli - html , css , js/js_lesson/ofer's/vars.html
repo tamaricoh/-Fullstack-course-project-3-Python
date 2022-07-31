@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let nikud = 100;
+      let haim = 5;
+      let shem = "mario";
+
+      function init() {
+        document.querySelector("#id_lives").innerHTML = haim;
+        document.querySelector("#id_score").innerHTML = nikud;
+        document.querySelector("#id_name").innerHTML = shem;
+      }
+    </script>
+  </head>
+  <body onload="init()">
+    <h2>Lives: <span id="id_lives"></span></h2>
+    <h2>Score: <span id="id_score"></span></h2>
+    <h2>Name: <span id="id_name"></span></h2>
+    <img src="images/crash.jpg" width="500" />
+  </body>
+</html>

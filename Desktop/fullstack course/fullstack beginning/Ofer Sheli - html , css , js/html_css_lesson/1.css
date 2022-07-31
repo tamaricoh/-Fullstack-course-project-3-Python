@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: silver;
+  color: white;
+  /*text-align: center;*/
+}
+.container {
+  /* רוחב הדיב */
+  width: 700px;
+  /* רקע הדיב */
+  background-color: mintcream;
+  /* ממרכז את הטקסט לאמצע */
+  margin: auto;
+  /* שוליים פנימיים */
+  padding: 16px;
+}
+.box1 {
+  height: 150px;
+  background-color: palevioletred;
+  margin-bottom: 8px;
+  border: 8px solid tan;
+  font-size: xx-large;
+  border-radius: 13px;
+}
+.box2 {
+  height: 150px;
+  background-color: rosybrown;
+  margin-bottom: 8px;
+  border: 8px dashed rgb(85, 27, 68);
+  padding: 13px;
+  font-size: large;
+  border-radius: 13px;
+}
+.box3 {
+  height: 150px;
+  background-color: rgb(124, 68, 113);
+  font-style: italic;
+  text-align: justify;
+  padding: 10px;
+  border-radius: 13px;
+}
+
+.pics {
+  float: left;
+  margin-right: 8px;
+  border: 2px solid rgb(85, 27, 68);
+}

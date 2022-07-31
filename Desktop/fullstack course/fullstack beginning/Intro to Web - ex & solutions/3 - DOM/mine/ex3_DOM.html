@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let mouseOveCounter = 0;
+      function changeBG() {
+        mouseOveCounter++;
+        document.querySelector("#id_lbl").innerHTML = mouseOveCounter;
+        if (mouseOveCounter % 2 == 1)
+          document.querySelector("#id_div").style.background = "blue";
+        else document.querySelector("#id_div").style.background = "red";
+      }
+    </script>
+  </head>
+  <body>
+    <label id="id_lbl"></label>
+    <div
+      id="id_div"
+      style="width: 200px; height: 200px; background-color: red"
+      onmouseover="changeBG()"
+    ></div>
+  </body>
+</html>

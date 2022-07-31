@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    let nikod = 100;
+    let haim = 5;
+    let shem = "mario";
+
+
+    function init() {
+
+      // + , - , * , / ,     %
+      // haim = haim + 3;
+      // haim += 1;
+      // כמו השורה למעלה
+      haim--;
+
+      haim = 24 % 3 
+
+      document.querySelector("#id_lives").innerHTML = haim;
+      document.querySelector("#id_score").innerHTML = nikod;
+      document.querySelector("#id_name").innerHTML = shem;
+
+      // nikod = 500;
+
+    }
+
+    function add5Score(){
+      nikod += 5;
+      document.querySelector("#id_score").innerHTML = nikod;
+    }
+
+    function reduce1Score(){
+      nikod--;
+      document.querySelector("#id_score").innerHTML = nikod;
+    }
+  </script>
+</head>
+
+<body onload="init()">
+  <h2>Lives: <span id="id_lives"></span></h2>
+  <h2>Score: <span id="id_score"></span></h2>
+  <h2>Name: <span id="id_name"></span></h2>
+  <button onclick="add5Score()">plus 5 score</button>
+  <button onclick="reduce1Score()">reduce 1 score</button>
+  <img src="images/crash.jpg" width="500">
+</body>
+
+</html>

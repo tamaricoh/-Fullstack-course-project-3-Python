@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let counter = 0;
+      let txt = [];
+      function addToSelect() {
+        counter++;
+        let obj = document.createElement("option");
+        obj.id = "id_" + counter;
+        obj.innerHTML = document.querySelector("#id_txt").value;
+        txt.push(obj.innerText);
+        document.querySelector("#id_slct").appendChild(obj);
+      }
+
+      function createTable() {
+        for (let i = 0; i < counter; i++) {
+          let tr = document.createElement("tr");
+          let td = document.createElement("td");
+          td.innerText = txt[i];
+          tr.appendChild(td);
+          document.querySelector("#tbl").appendChild(tr);
+        }
+      }
+    </script>
+  </head>
+  <body id="body">
+    <select id="id_slct"></select>
+    <input id="id_txt" type="text" />
+    <button id="id_btn" onclick="addToSelect()">Click</button>
+    <button id="id_create_btn" onclick="createTable()">Create Table</button>
+    <table id="tbl" border="1"></table>
+  </body>
+</html>

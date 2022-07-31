@@ -1,0 +1,40 @@
+<html>
+
+<head>
+
+    
+<script>
+
+
+let greet = false;
+
+function setText()
+{
+  let obj = document.getElementById("divText");
+  greet = !greet;
+
+  if(greet == true)
+  {
+    obj.innerText = "Hello"
+  }
+  else
+  {
+    obj.innerText = "Bye Bye"
+  }
+}
+
+
+</script>
+    
+
+
+</head>
+    <body>
+     
+
+      <input type="button" value="Change Text" onclick="setText()"> <br/>
+
+      <div id="divText"></div>
+
+    </body>
+</html>

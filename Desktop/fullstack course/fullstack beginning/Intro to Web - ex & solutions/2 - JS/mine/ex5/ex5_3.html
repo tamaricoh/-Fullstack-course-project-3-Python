@@ -1,0 +1,29 @@
+<html>
+  <script>
+    window.onload = function a() {
+      let Jsons1 = {
+        Name: { First: "Tamar", Last: "Cohen" },
+        Age: 22,
+        Phones: { Mobile: 050, Home: 07, Fax: null },
+      };
+      let Jsons2 = {
+        Name: { First: "Aamar", Last: "Cohen" },
+        Age: 22,
+        Phones: { Mobile: 020, Home: 07, Fax: null },
+      };
+      let Jsons3 = {
+        Name: { First: "Bamar", Last: "Cohen" },
+        Age: 22,
+        Phones: { Mobile: 010, Home: 07, Fax: null },
+      };
+      ex5_3([Jsons1, Jsons2, Jsons3], 050);
+    };
+    function ex5_3(arrOfJsons, phoneNum) {
+      for (let i = 0; i < arrOfJsons.length; i++) {
+        if (arrOfJsons[i].Phones.Mobile == phoneNum)
+          document.write(arrOfJsons[i].Name.First);
+      }
+    }
+  </script>
+  <body></body>
+</html>

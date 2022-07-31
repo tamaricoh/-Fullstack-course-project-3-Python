@@ -1,0 +1,58 @@
+<html>
+
+<head>
+
+    
+<script>
+
+let arr = [ [1, 6, 7] , [8, 3] , [ 2, 9, 5, 4 ] ];
+
+// a
+for(let i=0; i < arr.length; i++)
+{
+    for(let j=0; j < arr[i].length; j++ )
+    {
+        console.log( arr[i][j] )
+    }
+}
+
+//b
+for(let i=0; i < arr.length; i++)
+{
+    console.log( arr[i].length );
+}
+
+//c
+for(let i=0; i < arr.length; i++)
+{
+    for(let j=0; j < arr[i].length; j++ )
+    {
+        if(arr[i][j] >= 4 && arr[i][j] <= 8 )
+        {
+            console.log( arr[i][j] )
+        }
+        
+    }
+}
+
+//d
+let total = 0;
+for(let i=0; i < arr.length; i++)
+{
+    for(let j=0; j < arr[i].length; j++ )
+    {
+        total = total +  arr[i][j];
+    }
+}
+
+</script>
+    
+
+
+</head>
+    <body>
+        
+
+
+    </body>
+</html>

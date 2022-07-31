@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function init() {
+        document.write(sum10(5, 9, true));
+      }
+      function sum10(n1, n2, bool) {
+        if (n1 + n2 > 10) return bool;
+        else return !bool;
+      }
+    </script>
+  </head>
+  <body onload="init()"></body>
+</html>

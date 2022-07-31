@@ -1,0 +1,41 @@
+<html>
+  <script>
+    function getAvg(arr) {
+      let avg = 0;
+      let total = 0;
+
+      for (let i = 0; i < arr.length; i++) {
+        total += arr[i];
+      }
+
+      avg = total / arr.length;
+
+      return avg;
+    }
+
+    let studentData = {
+      nums1: [4, 1, 2, 5],
+      nums2: [6, 1, 8, 3],
+      student: {
+        name: "Avi",
+        id: 111,
+        grades: {
+          nums3: [4, 1, 9, 3],
+        },
+      },
+    };
+
+    let arr1 = studentData.nums1;
+    let arr2 = studentData.student.grades.nums3;
+
+    let avg1 = getAvg(arr1);
+    let avg2 = getAvg(arr2);
+
+    if (avg1 > avg2) {
+      console.log(avg1);
+    } else {
+      console.log(avg2);
+    }
+  </script>
+  <body></body>
+</html>

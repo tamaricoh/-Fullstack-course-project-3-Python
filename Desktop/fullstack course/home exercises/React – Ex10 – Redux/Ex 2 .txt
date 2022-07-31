@@ -1,0 +1,177 @@
+//-----------------------------------reducer
+
+// @author Tamar Cohen
+
+const Ex10_2reducer = (state = { products: [], total: 0 }, action) => {
+  switch (action.type) {
+    case "ADD": // gets product
+      let price1 = action.payload.price;
+      return {
+        ...state,
+        products: [...state.products, action.payload],
+        total: state.total + price1,
+      };
+
+    case "REMOVE":
+      // gets product name
+      let price2 = 0;
+      let arr = [...state.products];
+      arr = arr.filter((x) => {
+        if (x.name != action.payload) return x;
+        else price2 = x.price;
+      });
+      return { ...state, products: arr, total: state.total - price2 };
+
+    default:
+      return state;
+  }
+};
+
+export default Ex10_2reducer;
+
+// @author Tamar Cohen
+
+//-----------------------------------main
+
+// @author Tamar Cohen
+
+import Ex10_2totalPrice from "./Ex10_2totalPrice";
+import Ex10_2addProduct from "./Ex10_2addProduct";
+import Ex10_2productPresenr from "./Ex10_2productPresent";
+
+function Ex10_2() {
+  return (
+    <div>
+      <div style={{ float: "left", width: "50%" }}>
+        <Ex10_2totalPrice />
+        <br />
+        <Ex10_2addProduct />
+      </div>
+      <div style={{ float: "right", width: "50%" }}>
+        <Ex10_2productPresenr />
+      </div>
+    </div>
+  );
+}
+
+export default Ex10_2;
+
+// @author Tamar Cohen
+
+//-----------------------------------add product
+
+// @author Tamar Cohen
+
+import { useDispatch } from "react-redux";
+import { useState } from "react";
+
+function Ex10_2AP() {
+  const dispatach = useDispatch();
+  const [product, setProduct] = useState({ name: "", price: 0 });
+
+  return (
+    <div style={{ border: "3px solid red" }}>
+      Order New Product
+      <br />
+      Name :{" "}
+      <input
+        type="text"
+        onChange={(e) => setProduct({ ...product, name: e.target.value })}
+      />
+      <br />
+      Price :{" "}
+      <input
+        type="text"
+        onChange={(e) => setProduct({ ...product, price: +e.target.value })}
+      />
+      <br />
+      <input
+        type="button"
+        value="Add"
+        onClick={() => dispatach({ type: "ADD", payload: product })}
+      />
+    </div>
+  );
+}
+
+export default Ex10_2AP;
+
+// @author Tamar Cohen
+
+
+//-----------------------------------total price
+
+// @author Tamar Cohen
+
+import { useSelector } from "react-redux";
+import { useState } from "react";
+
+function Ex10_2TP() {
+  const totalCost = useSelector((state) => state.total);
+
+  return (
+    <div style={{ border: "3px solid red" }}>Total Price : {totalCost}</div>
+  );
+}
+
+export default Ex10_2TP;
+
+// @author Tamar Cohen
+
+//-----------------------------------products list
+
+// @author Tamar Cohen
+
+import { useSelector } from "react-redux";
+import { useState } from "react";
+import Ex10_2P from "./Ex10_2Product";
+
+function Ex10_2PP() {
+  const storeData = useSelector((state) => state);
+  return (
+    <div style={{ border: "3px solid blue" }}>
+      <h3>Current Products in Order</h3>
+      {storeData.products.map((item, index) => {
+        return <Ex10_2P key={index} prodData={item} />;
+      })}
+    </div>
+  );
+}
+
+export default Ex10_2PP;
+
+// @author Tamar Cohen
+
+
+//-----------------------------------product
+
+// @author Tamar Cohen
+
+import { useDispatch } from "react-redux";
+import { useState } from "react";
+
+function Ex10_2P(props) {
+  const dispatach = useDispatch();
+  return (
+    <div style={{ border: "3px solid green" }}>
+      Product Date
+      <br />
+      Name : {props.prodData.name}
+      <br />
+      Price : {props.prodData.price}
+      <br />
+      <input
+        type="button"
+        value="Remove"
+        onClick={() =>
+          dispatach({ type: "REMOVE", payload: props.prodData.name })
+        }
+      />
+    </div>
+  );
+}
+
+export default Ex10_2P;
+
+// @author Tamar Cohen
+
