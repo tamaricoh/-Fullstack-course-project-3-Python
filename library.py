@@ -60,7 +60,7 @@ class library :
     def remove_reader(self, readerName) :
         self.readers = list(filter(
             lambda x : x.name != readerName
-        ), self.readers)
+        , self.readers))
     
     def reader_read_book(self, bookTitle , readerName) :
         for reader in self.readers :
