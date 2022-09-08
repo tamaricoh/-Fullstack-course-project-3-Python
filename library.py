@@ -75,6 +75,12 @@ class library :
                 if (book.author == authorName) :
                     output.append(book.title)
         return output
+    
+    def to_json(self) :
+        return {
+            "shelves" : list(map(lambda shelf : shelf.to_json() , self.shelves)),
+            "readers" : list(map(lambda reader : reader.to_json() , self.readers))
+        }
 
 
     
