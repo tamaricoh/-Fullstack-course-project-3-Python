@@ -1,4 +1,3 @@
-from optparse import Option
 from pymongo import MongoClient
 import requests
 import json
