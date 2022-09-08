@@ -20,25 +20,17 @@ class library :
     
     def add_new_book(self, newBook) :
         if (self.is_there_place_for_a_new_book()) :
-            shelvesWithPlace = list(filter((lambda x : x.is_shelf_full == True), self.shelves)) # Assumming length > 0 because of the condition above
+            shelvesWithPlace = list(filter((lambda x : x.is_shelf_full == False), self.shelves)) # Assumming length > 0 because of the condition above
             chosenShelf = shelvesWithPlace[0]
             chosenShelf.add_book(newBook)
     
     def delete_book(self, bookToDelete) :
         for shelf in self.shelves :
             for i in range(len(shelf.books)) :
-                if (shelf.books[i].name == bookToDelete) :
+                if (shelf.books[i].title == bookToDelete) :
                     shelf.books.pop(i)
 
     def change_locations(self, titleA, titleB) :
-# not workinggggggggggggggggggggggggggg
-
-        # for shelf in self.shelves :
-        #     booksOnShelf = list(map((lambda x : x.title) , shelf.books))
-        #     if (titleA in booksOnShelf and titleB in booksOnShelf) : # If in the same shelf.
-        #         shelf.replacr_books(booksOnShelf.index(titleA), booksOnShelf.index(titleB))
-        #         break
-        #     # maybe????????
         def search (self , title) :
             for i in range(self.shelves) :
                 for j in range(self.shelves[i].books) :
@@ -79,7 +71,7 @@ class library :
     def search_by_author(self, authorName) :
         output = []
         for shelf in self.shelves :
-            for book in shelf :
+            for book in shelf.books :
                 if (book.author == authorName) :
                     output.append(book.title)
         return output
