@@ -25,18 +25,26 @@ class shelf :
                 self.books[indexB] = tempBook
     
     def order_books(self) :
-        mapToNumOfPages = map(lambda x : x.num_of_pages , self.books)
 
         # Sort function
-        def sort_arr(arr) :
+        def sort_arr(books) :
             output = []
-            for i in range(len(arr)) :
-                minNum = min(arr)
-                arr.remove(minNum)
-                output.append(minNum)
+            for i in range(len(books)) :
+                min = find_min(books)
+                books.remove(min)
+                output.append(min)
             return output
+
+        # Finding minimum
+        def find_min(books) :
+            min = books[0]
+            for book in books :
+                if (min.num_of_pages > book.num_of_pages) :
+                    min = book
+            return min
+                    
         
-        return sort_arr(mapToNumOfPages)
+        self.books = sort_arr(self.books)
 
 
 
