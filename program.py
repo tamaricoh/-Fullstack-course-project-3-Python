@@ -1,5 +1,6 @@
 from cmath import log
 import email
+from tkinter import W
 from pymongo import MongoClient
 import requests
 from reader import *
@@ -93,10 +94,18 @@ while (True) :
         bookToAdd.title = input("Enter book's title : ")
         bookToAdd.num_of_pages = int(input("Enter number of pages : "))
         library.add_new_book(bookToAdd)
-        print(library.shelves[0].books[2].title)
 
+    # Working
     elif (option == 2) :
-       print("Deleting a book \n")
-       bookTitle = input("Enter book's title : ")
-       library.delete_book(bookTitle)
-       print(library.shelves[0].books[2].title)
+        print("Deleting a book \n")
+        bookTitle = input("Enter book's title : ")
+        library.delete_book(bookTitle)
+        # print(library.shelves[0].books[2].title)
+
+    elif (option == 3) :
+        print("Changing books locations \n")
+        bookA = input("Enter first book title : ")
+        bookB = input("Enter second book title : ")
+        library.change_locations(bookA , bookB)
+        print(library.shelves[0].books[2].title)
+        print(library.shelves[0].books[3].title)
