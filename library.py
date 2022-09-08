@@ -52,10 +52,10 @@ class library :
             shelf.order_books()
 
     def register_reader(self, readerName , readerID) :
-        reader = reader()
-        reader.name = readerName
-        reader.id = readerID
-        self.readers.append(reader)
+        readerToAdd = reader()
+        readerToAdd.name = readerName
+        readerToAdd.id = readerID
+        self.readers.append(readerToAdd)
     
     def remove_reader(self, readerName) :
         self.readers = list(filter(
