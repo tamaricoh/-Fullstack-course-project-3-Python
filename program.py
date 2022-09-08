@@ -1,8 +1,8 @@
-from cmath import log
-import email
-from tkinter import W
 from pymongo import MongoClient
 import requests
+import json
+import os
+import sys
 from reader import *
 from shelf import *
 from book import *
@@ -56,14 +56,14 @@ for i in range(len(library.shelves)) :
 
 print("LOGGING IN - ")
 userName = input("Plaese enter USERNAME : ")
-email = input("Plaese enter EMAIL : ")
+userEmail = input("Plaese enter EMAIL : ")
 resp = requests.get("https://jsonplaceholder.typicode.com/users")
 users = resp.json()
 userNames = list(map(lambda x : x["username"] , users))
 emails = list(map(lambda x : x["email"] , users))
-if (userName in userNames and email in emails) :
+if (userName in userNames and userEmail in emails) :
     index1 = userNames.index(userName)
-    index2 = emails.index(email)
+    index2 = emails.index(userEmail)
     logged = index1 == index2
 else :
     logged = False
@@ -147,19 +147,15 @@ while (True) :
         
     # Working
     elif (option == 8) :
-        library.order_books()
-        print(library.shelves[0].books[0].num_of_pages)
-        print(library.shelves[0].books[1].num_of_pages)
-        print(library.shelves[0].books[2].num_of_pages)
-        print(library.shelves[1].books[0].num_of_pages)
-        print(library.shelves[1].books[1].num_of_pages)
-        print(library.shelves[2].books[0].num_of_pages)
-        print(library.shelves[2].books[1].num_of_pages)
-        
+        library.order_books()        
 
     elif (option == 9) :
         print("Saving all data \n")
-        print("----------------")
+        fileName = input("File name : ")
+        with open(os.path.join(sys.path[0], fileName + ".json"),'w') as file :
+            data = library.to_json()
+            json.dump(data,file)
+
 
     elif (option == 10) :
         print("Loading data \n")
@@ -169,3 +165,4 @@ while (True) :
         print("Adding a book \n")
         print("----------------")
     
+    print("\n \n \n")
