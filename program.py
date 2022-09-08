@@ -149,6 +149,7 @@ while (True) :
     elif (option == 8) :
         library.order_books()        
 
+    # Working
     elif (option == 9) :
         print("Saving all data \n")
         fileName = input("File name : ")
@@ -156,10 +157,26 @@ while (True) :
             data = library.to_json()
             json.dump(data,file)
 
-
+    # Working
     elif (option == 10) :
         print("Loading data \n")
-        print("----------------")
+        fileName = input("File name : ")
+        with open(os.path.join(sys.path[0], fileName + ".json"),'r') as file :
+            data = json.load(file)
+            for i in range(len(data["shelves"])) :
+                library.shelves[i].is_shelf_full = data["shelves"][i]["is_shelf_full"]
+                for book in data["shelves"][i]["books"] :
+                    bookToAdd.author = book["author"]
+                    bookToAdd.title = book["title"]
+                    bookToAdd.num_of_pages = book["num_of_pages"]
+                    library.shelves[i].books.append(bookToAdd)
+            for readerJson in data["readers"] :
+                readerToAdd = reader()
+                readerToAdd.id = readerJson["id"]
+                readerToAdd.name = readerJson["name"]
+                readerToAdd.books = readerJson["books"]
+                library.readers.append(readerToAdd)
+
 
     elif (option == 11) :
         print("Adding a book \n")
