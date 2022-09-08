@@ -45,7 +45,12 @@ class shelf :
                     
         
         self.books = sort_arr(self.books)
-
+    
+    def to_json(self) :
+        return {
+            "is_shelf_full" : self.is_shelf_full,
+            "books" : list(map(lambda book : book.to_json() , self.books))
+        }
 
 
 
