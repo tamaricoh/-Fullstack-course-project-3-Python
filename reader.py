@@ -12,4 +12,9 @@ class reader :
         bookBorrowed = { "title" : title , "dateOfBorrowing" : date}
         self.books.append(bookBorrowed)
     
+    def to_json(self) :
+        return {
+            "id" : self.id,
+            "books" : self.books
+        }
 
