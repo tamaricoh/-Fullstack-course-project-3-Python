@@ -31,13 +31,13 @@ class library :
                     shelf.books.pop(i)
 
     def change_locations(self, titleA, titleB) :
-        def search (self , title) :
-            for i in range(self.shelves) :
-                for j in range(self.shelves[i].books) :
+        def search(title) :
+            for i in range(len(self.shelves)) :
+                for j in range(len(self.shelves[i].books)) :
                     if (self.shelves[i].books[j].title == title) :
                         return [i,j]
-        placeA = self.search(titleA)
-        placeB = self.search(titleB)
+        placeA = search(titleA)
+        placeB = search(titleB)
         temp = self.shelves[placeA[0]].books[placeA[1]]
         self.shelves[placeA[0]].books[placeA[1]] = self.shelves[placeB[0]].books[placeB[1]]
         self.shelves[placeB[0]].books[placeB[1]] = temp
