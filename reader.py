@@ -9,7 +9,7 @@ class reader :
     
     def read_book(self, title) :
         date = str(datetime.now().date())
-        bookBorrowed = { "bookTitle" : title , "dateOfBorrowing" : date}
+        bookBorrowed = { "title" : title , "dateOfBorrowing" : date}
         self.books.append(bookBorrowed)
     
 
