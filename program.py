@@ -34,14 +34,14 @@ collection.insert_one({
     "num_of_pages" : 352.0
 })
 collection.insert_one({
-    "author" : "Khaled Hosseini", 
-    "title" : "The Kite Runner", 
-    "num_of_pages" : 371.0
-})
-collection.insert_one({
     "author" : "Dinah Jefferies", 
     "title" : "The Tea Planter's Wife", 
     "num_of_pages" : 448.0
+})
+collection.insert_one({
+    "author" : "Khaled Hosseini", 
+    "title" : "The Kite Runner", 
+    "num_of_pages" : 371.0
 })
 
 library = library()
@@ -145,10 +145,17 @@ while (True) :
                 reader.read_book(bookTitle)
                 break
         
-
+    # Working
     elif (option == 8) :
-        print("Ordering all books \n")
-        print("----------------")
+        library.order_books()
+        print(library.shelves[0].books[0].num_of_pages)
+        print(library.shelves[0].books[1].num_of_pages)
+        print(library.shelves[0].books[2].num_of_pages)
+        print(library.shelves[1].books[0].num_of_pages)
+        print(library.shelves[1].books[1].num_of_pages)
+        print(library.shelves[2].books[0].num_of_pages)
+        print(library.shelves[2].books[1].num_of_pages)
+        
 
     elif (option == 9) :
         print("Saving all data \n")
