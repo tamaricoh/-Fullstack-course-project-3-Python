@@ -52,3 +52,45 @@ for i in range(len(library.shelves)) :
         bookToAdd.title = booksArr[(2*i)+j]["title"]
         bookToAdd.num_of_pages = booksArr[(2*i)+j]["num_of_pages"]
         library.shelves[i].add_book(bookToAdd)
+
+print("LOGGING IN - ")
+userName = input("Plaese enter USERNAME : ")
+email = input("Plaese enter EMAIL : ")
+resp = requests.get("https://jsonplaceholder.typicode.com/users")
+users = resp.json()
+userNames = list(map(lambda x : x["username"] , users))
+emails = list(map(lambda x : x["email"] , users))
+if (userName in userNames and email in emails) :
+    index1 = userNames.index(userName)
+    index2 = emails.index(email)
+    logged = index1 == index2
+else :
+    logged = False
+
+# while (logged) :
+while (True) :
+    print("MENU : " + "\n"
+    "• For adding a book - Press 1" + "\n" +
+    "• For deleting a book - Press 2" + "\n" +
+    "• For changing books locations - Press 3" + "\n" +
+    "• For registering a new reader - Press 4" + "\n" +
+    "• For removing a reader - Press 5" + "\n" +
+    "• For searching books by author - Press 6" + "\n" +
+    "• For reading a book by a reader - Press 7" + "\n" +
+    "• For ordering all books - Press 8" + "\n" +
+    "• For saving all data - Press 9" + "\n" +
+    "• For loading data - Press 10" + "\n" +
+    "• For exit - Press 11" + "\n" 
+        )
+    option = int(input("Chose option - "))
+    print("\n")
+
+     # Working
+    if (option == 1) : 
+        print("Adding a book \n")
+        bookToAdd = book()
+        bookToAdd.author = input("Enter author's name : ")
+        bookToAdd.title = input("Enter book's title : ")
+        bookToAdd.num_of_pages = int(input("Enter number of pages : "))
+        library.add_new_book(bookToAdd)
+
