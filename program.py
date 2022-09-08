@@ -102,10 +102,19 @@ while (True) :
         library.delete_book(bookTitle)
         # print(library.shelves[0].books[2].title)
 
+    # Working
     elif (option == 3) :
         print("Changing books locations \n")
         bookA = input("Enter first book title : ")
         bookB = input("Enter second book title : ")
         library.change_locations(bookA , bookB)
-        print(library.shelves[0].books[2].title)
-        print(library.shelves[0].books[3].title)
+        # print(library.shelves[0].books[2].title)
+        # print(library.shelves[0].books[3].title)
+
+
+    elif (option == 4) :
+        print("Registering a new reader \n")
+        readerName = input("Enter reader's name : ")
+        readerID = input("Enter reader's ID : ")
+        library.register_reader(readerName , readerID)
+        print(library.readers[0].name + " " + library.readers[0].id)
