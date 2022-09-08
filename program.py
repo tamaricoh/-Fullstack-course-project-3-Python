@@ -179,7 +179,6 @@ while (True) :
 
 
     elif (option == 11) :
-        print("Adding a book \n")
-        print("----------------")
+        exit()
     
     print("\n \n \n")
