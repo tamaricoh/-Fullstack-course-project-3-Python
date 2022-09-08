@@ -117,11 +117,20 @@ while (True) :
         readerName = input("Enter reader's name : ")
         readerID = input("Enter reader's ID : ")
         library.register_reader(readerName , readerID)
-        print(library.readers[0].name + " " + library.readers[0].id)
+        # print(library.readers[0].name + " " + library.readers[0].id)
     
-
+    # Working
     elif (option == 5) :
         print("Removing a reader \n")
         readerName = input("Enter reader's name : ")
         library.remove_reader(readerName)
-        print(library.readers[0].name + " " + library.readers[0].id)
+        # print(library.readers[0].name + " " + library.readers[0].id)
+    
+    # Working
+    elif (option == 6) :
+        print("Searching books by author \n")
+        author = input("Enter author name : ")
+        books = library.search_by_author(author)
+        print("Books written by " + author + " : ")
+        for book in books : 
+            print("- " + book)
