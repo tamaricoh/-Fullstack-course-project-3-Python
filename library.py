@@ -1,7 +1,9 @@
 # from shelf import *
 
 
-from shelf import shelf
+from reader import *
+from shelf import *
+from book import *
 
 
 class library :
@@ -29,12 +31,14 @@ class library :
                     shelf.books.pop(i)
 
     def change_locations(self, titleA, titleB) :
-        for shelf in self.shelves :
-            booksOnShelf = list(map((lambda x : x.title) , shelf.books))
-            if (titleA in booksOnShelf and titleB in booksOnShelf) : # If in the same shelf.
-                shelf.replacr_books(booksOnShelf.index(titleA), booksOnShelf.index(titleB))
-                break
-            # maybe????????
+# not workinggggggggggggggggggggggggggg
+
+        # for shelf in self.shelves :
+        #     booksOnShelf = list(map((lambda x : x.title) , shelf.books))
+        #     if (titleA in booksOnShelf and titleB in booksOnShelf) : # If in the same shelf.
+        #         shelf.replacr_books(booksOnShelf.index(titleA), booksOnShelf.index(titleB))
+        #         break
+        #     # maybe????????
         def search (self , title) :
             for i in range(self.shelves) :
                 for j in range(self.shelves[i].books) :
@@ -45,8 +49,45 @@ class library :
         temp = self.shelves[placeA[0]].books[placeA[1]]
         self.shelves[placeA[0]].books[placeA[1]] = self.shelves[placeB[0]].books[placeB[1]]
         self.shelves[placeB[0]].books[placeB[1]] = temp
+    
+    def change_locations_in_same_shelf(self, shelf, bookA , bookB) :
+        # Using replacr_books function from 'shelf' class
+        self.shelves[shelf].replacr_books(bookA , bookB)
+    
+    def order_books(self) :
+        # Using order_books function from 'shelf' class
+        for shelf in self.shelves :
+            shelf.order_books()
 
-lala = library()
+    def register_reader(self, readerName , readerID) :
+        reader = reader()
+        reader.name = readerName
+        reader.id = readerID
+        self.readers.append(reader)
+    
+    def remove_reader(self, readerName) :
+        self.readers = list(filter(
+            lambda x : x.name != readerName
+        ), self.readers)
+    
+    def reader_read_book(self, bookTitle , readerName) :
+        for reader in self.readers :
+            if (reader.name == readerName) :
+                reader.read_book(bookTitle)
+                break
+    
+    def search_by_author(self, authorName) :
+        output = []
+        for shelf in self.shelves :
+            for book in shelf :
+                if (book.author == authorName) :
+                    output.append(book.title)
+        return output
+
+
+    
+    
+
 
 
 
