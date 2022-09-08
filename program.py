@@ -111,10 +111,17 @@ while (True) :
         # print(library.shelves[0].books[2].title)
         # print(library.shelves[0].books[3].title)
 
-
+    # Working
     elif (option == 4) :
         print("Registering a new reader \n")
         readerName = input("Enter reader's name : ")
         readerID = input("Enter reader's ID : ")
         library.register_reader(readerName , readerID)
+        print(library.readers[0].name + " " + library.readers[0].id)
+    
+
+    elif (option == 5) :
+        print("Removing a reader \n")
+        readerName = input("Enter reader's name : ")
+        library.remove_reader(readerName)
         print(library.readers[0].name + " " + library.readers[0].id)
