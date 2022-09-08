@@ -134,3 +134,31 @@ while (True) :
         print("Books written by " + author + " : ")
         for book in books : 
             print("- " + book)
+    
+    # Working
+    elif (option == 7) :
+        print("Reading a book by a reader \n")
+        readerID = input("Enter reader's ID : ")
+        bookTitle = input("Enter book's title : ")
+        for reader in library.readers :
+            if (reader.id == readerID) :
+                reader.read_book(bookTitle)
+                break
+        
+
+    elif (option == 8) :
+        print("Ordering all books \n")
+        print("----------------")
+
+    elif (option == 9) :
+        print("Saving all data \n")
+        print("----------------")
+
+    elif (option == 10) :
+        print("Loading data \n")
+        print("----------------")
+
+    elif (option == 11) :
+        print("Adding a book \n")
+        print("----------------")
+    
