@@ -31,11 +31,14 @@ class library :
                     shelf.books.pop(i)
 
     def change_locations(self, titleA, titleB) :
+
+        # Search function - returns [index of the shelf in the library , index of the book in the shelf]
         def search(title) :
             for i in range(len(self.shelves)) :
                 for j in range(len(self.shelves[i].books)) :
                     if (self.shelves[i].books[j].title == title) :
                         return [i,j]
+
         placeA = search(titleA)
         placeB = search(titleB)
         temp = self.shelves[placeA[0]].books[placeA[1]]
@@ -52,17 +55,20 @@ class library :
             shelf.order_books()
 
     def register_reader(self, readerName , readerID) :
+        # Adding to self.readers
         readerToAdd = reader()
         readerToAdd.name = readerName
         readerToAdd.id = readerID
         self.readers.append(readerToAdd)
     
     def remove_reader(self, readerName) :
+        # Filter self.readers
         self.readers = list(filter(
             lambda x : x.name != readerName
         , self.readers))
     
     def reader_read_book(self, bookTitle , readerName) :
+        # Using read_book function from 'reader' class 
         for reader in self.readers :
             if (reader.name == readerName) :
                 reader.read_book(bookTitle)
